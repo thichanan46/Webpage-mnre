@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ขอนแก่น</title>
+  <link rel="icon" href="./icons/database.png">
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/popupstyle.css">
+
+  <!-- import JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+
+  <!-- import Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- import Leaflet Ver1.7.1 for leaflet-measure-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- import leaflet-measure -->
+  <link rel="stylesheet" href="./src/leaflet-measure-master/leaflet-measure.css">
+  <script src="./src/leaflet-measure-master/leaflet-measure.js"></script>
+
+  <!-- import switchBasemap -->
+  <link href="./src/L.switchBasemap.css" rel="stylesheet">
+  <script src="./src/L.switchBasemap.js"></script>
+
+  <!-- import geoserver -->
+  <script src="./js/script_geoserver_shp.js"></script>
+
+  <!-- import Js -->
+  <script type="text/javascript" src="./js/script_navbar.js" defer></script>
+  <script src="./js/script_plugin_map.js"></script>
+  <script src="./js/script_popupindex.js"></script>
+
+  <!-- import Leaflet Ajax-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"
+    integrity="sha512-Abr21JO2YqcJ03XGZRPuZSWKBhJpUAR6+2wH5zBeO4wAw4oksr8PRdF+BKIRsxvCdq+Mv4670rZ+dLnIyabbGw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- import turf -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Turf.js/6.5.0/turf.min.js"></script>
+
+
+</head>
+
+<body>
+
+  <nav id="sidebar" class="close">
+    <ul>
+      <li>
+        <!-- <img class="logo_kk" src="icons/save.png"> -->
+        <span class="logo">จังหวัด ขอนแก่น</span>
+        <button onclick=toggleSidebar() id="toggle-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z" />
+          </svg>
+        </button>
+      </li>
+      <li class="active">
+        <a href="index.html">
+          <img src="icons/home.png" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+          <span class="home">หน้าหลัก</span>
+        </a>
+      </li>
+
+      <li>
+        <button onclick=toggleSubMenu(this) class="dropdown-btn">
+          <img src="icons/layers.png" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+          <span>ขอบเขตพื้นที่</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z" />
+          </svg>
+        </button>
+        <ul class="sub-menu">
+          <div>
+            <li><a href="#">
+                <input type="checkbox" class="kkpv_checkbox" id="kkpv_checkbox" name="">
+                <p>จังหวัด</p>
+              </a>
+            </li>
+
+            <li><a href="#">
+                <input type="checkbox" class="kk_checkbox" id="kk_checkbox" name="">
+                <p>อำเภอ</p>
+              </a>
+            </li>
+
+            <li><a href="#">
+                <input type="checkbox" class="th_checkbox" id="th_checkbox" name="">
+                <p>ประเทศไทย</p>
+              </a>
+            </li>
+          </div>
+        </ul>
+      </li>
+
+      <li>
+        <button onclick=toggleSubMenu(this) class="dropdown-btn">
+          <img src="icons/tree.png" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+          <span>พื้นที่ป่าไม้</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z" />
+          </svg>
+        </button>
+        <ul class="sub-menu">
+          <div>
+            <li><a href="#">
+                <input type="checkbox" class="paanurak_checkbox" id="paanurak_checkbox" name="">
+                <p>ป่าอนุรักษ์</p>
+              </a>
+            </li>
+
+            <li><a href="#">
+                <input type="checkbox" class="pasanguan_checkbox" id="pasanguan_checkbox" name="">
+                <p>ป่าสงวน</p>
+              </a>
+            </li>
+
+            <li><a href="#">
+              <input type="checkbox" class="patawon_checkbox" id="patawon_checkbox" name="">
+              <p>ป่าถาวร</p>
+            </a>
+          </li>
+
+            <li><a href="#">
+                <input type="checkbox" class="suanpha_checkbox" id="suanpha_checkbox" name="">
+                <p>สวนป่า</p>
+              </a>
+            </li>
+          </div>
+        </ul>
+      </li>
+
+      <li>
+        <button onclick=toggleSubMenu(this) class="dropdown-btn">
+          <img src="icons/trees.png" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+          <span>พื้นที่ป่าไม้ (รายปี)</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z" />
+          </svg>
+        </button>
+        <ul class="sub-menu">
+          <div>
+            <li><a href="#">
+                <input type="checkbox" class="f2566_checkbox" id="f2566_checkbox" name="">
+                <p>ปี พ.ศ.2566</p>
+              </a>
+            </li>
+
+            <li><a href="#">
+                <input type="checkbox" class="f2565_checkbox" id="f2565_checkbox" name="">
+                <p>ปี พ.ศ.2565</p>
+              </a>
+            </li>
+          </div>
+        </ul>
+      </li>
+
+
+      <li>
+        <button onclick=toggleSubMenu(this) class="dropdown-btn">
+          <img src="icons/menu.png" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+          <span>อื่นๆ</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z" />
+          </svg>
+        </button>
+        <ul class="sub-menu">
+          <div>
+            <li><a href="#">
+                <input type="checkbox" class="soil_checkbox" id="soil_checkbox" name="">
+                <p>ดิน</p>
+              </a>
+            </li>
+            <li><a href="#">
+              <input type="checkbox" class="rock_checkbox" id="rock_checkbox" name="">
+              <p>หิน</p>
+            </a>
+          </li>
+          </div>
+        </ul>
+      </li>
+
+      <li>
+        <a href="document.html">
+          <img src="icons/folder.png" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+          <span>เอกสาร</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- แผนที่ -->
+  <div id="map" style="height: 100vh;">
+    <div class="coordinates-form">
+      <h4>กรอกพิกัด</h4>
+      <input type="text" id="latInput" placeholder="ละติจูด" />
+      <input type="text" id="lngInput" placeholder="ลองจิจูด" />
+      <button class="boxsearch" onclick="showPopup()">ค้นหา</button>
+      <button class="boxsearch_location" id="home">ตำแหน่งปัจจุบัน</button>
+      <p id="demo">ตำแหน่งของคุณจะแสดงที่นี่...</p>
+    </div>
+
+    <!-- ป๊อบอัพแจ้งเตือน -->
+    <div class="container-noti" id="container-noti">
+      <div class="popup-noti">
+        <!-- เปลี่ยนไอคอนแจ้งเตือน -->
+        <img src="./icons/verify.png">
+        <h2>พิกัดที่ค้นหา</h2>
+        <p id="popup-message">กำลังตรวจสอบพิกัด...</p>
+        <button class="button-popup" type="button" onclick="confirmLocation()">ตกลง</button>
+      </div>
+    </div>
+    <div id="label"></div>
+
+  <!--                                                    popupmain แสดงตอนเปิด web                                                -->
+  <div id="overlay" class="cover blur-in">
+    <div>
+      <div class="pop-up-noti small-6 large-centered">
+        <img class="mnre" src="./icons/alert.png" alt="">
+        <p class="poptext"></p>
+        <h2 class="poptext0">คำแนะนำเพิ่มเติมก่อนการใช้งาน</h2>
+        <p class="poptext1">
+          ระบบตรวจสอบตำแหน่งพื้นที่ป่าไม้ดังกล่าว<br>
+          เป็นเพียงการตรวจสอบเบื้องต้นเท่านั้น<br>ซึ่งไม่สามารถใช้เป็นเอกสารอ้างอิงทางกฎหมายได้!</p>
+        <p class="poptext2">
+          หากต้องการเอกสารการขออนุญาตเข้าทำประโยชน์ในพื้นที่ป่าไม้<br>
+          จักต้องมีการตรวจสอบโดยละเอียด ทั้งนี้ สามารถติดต่อสอบถามได้ที่<br>
+          สำนักงานทรัพยากรธรรมชาติและสิ่งแวดล้อม จังหวัดขอนแก่น<br>
+          <button class="close-button-notiindex" type="button">ปิด</button>
+        </p>
+      </div>
+    </div>
+
+    <main>
+      <script>
+        var map = L.map('map', {
+          center: [16.427897330240338, 102.55463846499323],
+          zoom: 9,
+          zoomControl: false
+        });
+      </script>
+
+    </main>
+</body>
+
+</html>

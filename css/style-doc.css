@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+
+*{
+    font-family: Noto Sans Thai;;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+.containerbox{
+    background: #b8dc79;
+    padding:15px 9%;
+    padding-bottom: 100px;
+    min-height: 100vh;
+}
+
+.containerbox .heading{
+    text-align: center;
+    padding-bottom: 15px;
+    color:#fff;
+    text-shadow: 0 5px 10px rgba(0,0,0,.2);
+    font-size: 50px;
+}
+
+.containerbox .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:15px;
+}
+
+.containerbox .box-container .box{
+    margin-top: 100px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    border-radius: 5px;
+    background: #f1ffda; /* สีกรอบ */
+    text-align: center;
+
+}
+
+.containerbox .box-container .box img{
+    height: 400px;
+}
+
+.containerbox .box-container .box h3{
+    color:#444;
+    font-size: 22px;
+/*     padding:10px 0; */
+}
+
+.containerbox .box-container .box p{
+    color:#777;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.containerbox .box-container .box .btn{
+/*     margin-top: 10px; */
+    display: inline-block;
+    background:#85A947;
+    color:#fff;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 8px 25px;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.containerbox .box-container .box .btn:hover{
+    letter-spacing: 1px;
+}
+
+.containerbox .box-container .box:hover{
+    box-shadow: 0 10px 15px rgba(0,0,0,.3);
+    transform: scale(1.03);
+}
+
+@media (max-width:768px){
+    .container{
+        padding:20px;
+    }
+}
+
+
+.back-button-index {
+    font-size: 20px;
+    position: absolute;
+    top: 10px; /* ระยะห่างจากขอบบน */
+    left: 50%;
+    transform: translateX(-50%); /* จัดตรงกลางแนวนอน */
+    padding: 8px 15px;
+    background-color: #229954;
+    color: #fff;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    margin-top: 30px;
+} 
+
+.back-button-index:hover {
+    background-color: #aa732b;
+}
+

@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+
+.hidden {
+    display: none;
+}
+
+.leaflet-control-basemapsSwitcher{
+    height: auto;
+    width: auto;
+    display:flex;
+}
+
+.leaflet-control-basemapsSwitcher:hover{
+    cursor: pointer;
+}
+
+.basemapImg{
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 65%);
+    /* เปลี่ยนสีกรอบเบสแมพ */
+    background-color: #799351;
+    margin:5px;
+    padding:2px;
+    border-radius: 3px 3px;
+}
+
+.basemapImg div{
+    background-size: 70px 70px;
+    width: 70px;
+    height: 70px;
+    border-radius: 3px 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*   ชื่อเบสแมพ */
+.basemapImg div .name{
+    font-family: Noto Sans Thai;
+    width:100%;
+    height:auto;
+    background-color: rgba(255, 255, 255, 0.542);
+    border-radius: 0;
+    color:rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    padding:1px;
+} 
+
+.basemapImg div .check{
+    width:auto;
+    height:auto;
+    border-radius: 0;
+    display: flex;
+    align-items: flex-end;
+    font-weight: 500;
+    padding:1px;
+    content:''
+}
+
+.activeMap::before{
+/*     color:white; */
+    content: '';
+    /* content: url('https://api.iconify.design/bi/bell-fill.svg?height=32&color=gray') */;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cmask id='lineMdCircleFilledToConfirmCircleFilledTransition0'%3E%3Cg fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath fill='%23fff' d='M3 12c0 -4.97 4.03 -9 9 -9c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9Z'/%3E%3Cpath stroke='%23000' stroke-dasharray='14' stroke-dashoffset='14' d='M8 12l3 3l5 -5'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='0.2s' values='14;0'/%3E%3C/path%3E%3C/g%3E%3C/mask%3E%3Crect width='24' height='24' fill='%236cc953' mask='url(%23lineMdCircleFilledToConfirmCircleFilledTransition0)'/%3E%3C/svg%3E");
+    width: 18px;
+    height: 18px;
+    background-color: #387B23;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
