@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bb0ea03aa79257cf46a243902c8edb07bf07333a6d6cd70badaab81fc8bbece3
-size 3231
+{
+"type": "FeatureCollection",
+"name": "suanpha_kk",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "Plant_name": "สวนป่าเขาสวนกวาง", "Div": "ออป.ตะวันอ", "Subdiv": "ออป.เขต", "POINT_X": 102.780374759, "POINT_Y": 16.986516698300001, "Lat": 16.986516698300001, "Lon": 102.780374759 }, "geometry": { "type": "Point", "coordinates": [ 102.780374758388461, 16.986516698686728 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "Plant_name": "สวนป่าโคกสูง-บ้าน", "Div": "ออป.ตะวันอ", "Subdiv": "ออป.เขต", "POINT_X": 102.439033643, "POINT_Y": 15.8993557957, "Lat": 15.8993557957, "Lon": 102.439033643 }, "geometry": { "type": "Point", "coordinates": [ 102.439033642188917, 15.899355795633539 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "Plant_name": "สวนป่าดงซำ", "Div": "ออป.ตะวันอ", "Subdiv": "ออป.เขต", "POINT_X": 103.08347278399999, "POINT_Y": 16.607990258600001, "Lat": 16.607990258600001, "Lon": 103.08347278399999 }, "geometry": { "type": "Point", "coordinates": [ 103.083472783742025, 16.607990258943346 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "Plant_name": "สวนป่าท่าสวรรค์", "Div": "ออป.ตะวันอ", "Subdiv": "ออป.เขต", "POINT_X": 102.632046222, "POINT_Y": 16.243720732, "Lat": 16.243720732, "Lon": 102.632046222 }, "geometry": { "type": "Point", "coordinates": [ 102.632046221555925, 16.24372073202619 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "Plant_name": "สวนป่าท่าใหม่", "Div": "ออป.ตะวันอ", "Subdiv": "ออป.เขต", "POINT_X": 102.587444156, "POINT_Y": 16.222289082700001, "Lat": 16.222289082700001, "Lon": 102.587444156 }, "geometry": { "type": "Point", "coordinates": [ 102.587444155823221, 16.222289082774978 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 6, "Plant_name": "สวนป่าน้ำพอง", "Div": "ออป.ตะวันอ", "Subdiv": "ออป.เขต", "POINT_X": 103.004055751, "POINT_Y": 16.845516858700002, "Lat": 16.845516858700002, "Lon": 103.004055751 }, "geometry": { "type": "Point", "coordinates": [ 103.004055751072087, 16.845516858616179 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 7, "Plant_name": "สวนป่ามัญจาคีรี", "Div": "ออป.ตะวันอ", "Subdiv": "ออป.เขต", "POINT_X": 102.593293418, "POINT_Y": 16.219435532, "Lat": 16.219435532, "Lon": 102.593293418 }, "geometry": { "type": "Point", "coordinates": [ 102.593293417457289, 16.21943553212418 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 8, "Plant_name": "สวนป่าหนองเม็ก-ลุ", "Div": "ออป.ตะวันอ", "Subdiv": "ออป.เขต", "POINT_X": 102.830194342, "POINT_Y": 16.095442307300001, "Lat": 16.095442307300001, "Lon": 102.830194342 }, "geometry": { "type": "Point", "coordinates": [ 102.830194342594893, 16.095442307216729 ] } }
+]
+}
